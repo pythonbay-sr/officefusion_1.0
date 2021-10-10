@@ -1,3 +1,0 @@
-# Office Fusion
-
-UNDER DEVELOPMENT!
