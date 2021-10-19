@@ -71,7 +71,7 @@ def alarm_app():
 
     #Add event
 
-    add_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\131.png"
+    add_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\buttons\\set_alarm.png"
 
     add_event_icon = ImageTk.PhotoImage(Image.open(add_event_path))
     add_event_button = tk.Button(root, image=add_event_icon, relief=FLAT, text="optional text", command=activate_alarm, bd=0)

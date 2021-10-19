@@ -8,15 +8,14 @@ from tkcalendar import Calendar, DateEntry
 from tkinter import messagebox
 import datetime
 import time
-import webbrowser
 from playsound import playsound
-import math
 from weather import weather_app
 from tkinter import filedialog
 from tkPDFViewer import tkPDFViewer as pdf
 import threading
 from alarm import alarm_app
 from datepicker import calendar_app
+import os
 
 
 #Set up the Program
@@ -41,7 +40,7 @@ def tasks_app():
     notes.resizable(width=False, height=False)
     notes.configure(bg="#323999")
 
-    img = ImageTk.PhotoImage(Image.open(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\124.png"))
+    img = ImageTk.PhotoImage(Image.open(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\templates\\tasks_template.png"))
     panel = Label(notes, image = img)
     panel.place(x=0, y=0)
 
@@ -170,20 +169,23 @@ def add_event():
 
     title = Title_Entry.get()
     location = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\projects\\"
-    path = (location + title + ".txt")
+    path = (location + "events" + ".txt")
     description = Description_Entry.get(1.0, END)
+    people = People_Entry.get()
     with open(path, 'w') as f:
         f.write(title)
         f.write(description)
+        f.write(people)
 
 
-def do():
-    x=0
+def open_events():
+    path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\projects" + "\\events.txt"
+    os.startfile(path)
 
 
 #Add event
 
-add_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\add_event.png"
+add_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\buttons\\add_event.png"
 
 add_event_icon = ImageTk.PhotoImage(Image.open(add_event_path))
 add_event_button = tk.Button(root, image=add_event_icon, relief=FLAT, text="optional text", command=add_event, bd=0)
@@ -192,10 +194,10 @@ add_event_button.place(x=750, y=670)
 
 #Open a event
 
-open_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\open_event.png"
+open_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\buttons\\open_event.png"
 
 open_event_icon = ImageTk.PhotoImage(Image.open(open_event_path))
-open_event_button = tk.Button(root, image=open_event_icon, relief=FLAT, text="optional text", command=do, bd=0)
+open_event_button = tk.Button(root, image=open_event_icon, relief=FLAT, text="optional text", command=open_events, bd=0)
 open_event_button.place(x=315, y=670)
 
 
