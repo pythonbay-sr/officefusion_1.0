@@ -17,6 +17,8 @@ from alarm import alarm_app
 from datepicker import calendar_app
 import os
 
+general_path = os.getcwd().replace("\\", r"\\")
+
 
 #Set up the Program
 
@@ -27,7 +29,7 @@ root.resizable(width=False, height=False)
 root.configure(bg="#323999")
 
 
-img1 = ImageTk.PhotoImage(Image.open(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\templates\\main_template.png"))
+img1 = ImageTk.PhotoImage(Image.open(general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\templates\\main_template.png"))
 panel = Label(root, image = img1)
 panel.place(x=0, y=0)
 
@@ -40,7 +42,7 @@ def tasks_app():
     notes.resizable(width=False, height=False)
     notes.configure(bg="#323999")
 
-    img = ImageTk.PhotoImage(Image.open(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\templates\\tasks_template.png"))
+    img = ImageTk.PhotoImage(Image.open(general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\templates\\tasks_template.png"))
     panel = Label(notes, image = img)
     panel.place(x=0, y=0)
 
@@ -92,7 +94,7 @@ def pdf_viewer():
 
     #PDF Viewer Template
 
-    img = ImageTk.PhotoImage(Image.open(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\templates\\pdf_viewer_template.png"))
+    img = ImageTk.PhotoImage(Image.open(general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\templates\\pdf_viewer_template.png"))
     panel = Label(top, image = img)
     panel.place(x=0, y=0)
 
@@ -134,10 +136,6 @@ def close_window():
         pass
 
 
-#def delete_answer():
-#    Text_Entry.delete(0, 'end')
-
-
 today = datetime.date.today()
 
 mindate = datetime.date(year=1900, month=1, day=1)
@@ -164,28 +162,28 @@ Calendar_Interface_Label.place(x=300, y=340)
 def add_event():
     global date
     date = Calendar_Interface_Label.get_date()
-    print(date)
-
 
     title = Title_Entry.get()
-    location = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\projects\\"
-    path = (location + "events" + ".txt")
     description = Description_Entry.get(1.0, END)
     people = People_Entry.get()
+
+    location = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\projects\\"
+    path = (location + title + ".txt")
+
     with open(path, 'w') as f:
-        f.write(title)
-        f.write(description)
-        f.write(people)
+        f.write("Title : " + title + "\n")
+        f.write("Description : " + description)
+        f.write("People : " + people + "\n")
 
 
 def open_events():
-    path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\projects" + "\\events.txt"
+    path = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\projects" + "\\events.txt"
     os.startfile(path)
 
 
 #Add event
 
-add_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\buttons\\add_event.png"
+add_event_path = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\buttons\\add_event.png"
 
 add_event_icon = ImageTk.PhotoImage(Image.open(add_event_path))
 add_event_button = tk.Button(root, image=add_event_icon, relief=FLAT, text="optional text", command=add_event, bd=0)
@@ -194,7 +192,7 @@ add_event_button.place(x=750, y=670)
 
 #Open a event
 
-open_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\buttons\\open_event.png"
+open_event_path = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\buttons\\open_event.png"
 
 open_event_icon = ImageTk.PhotoImage(Image.open(open_event_path))
 open_event_button = tk.Button(root, image=open_event_icon, relief=FLAT, text="optional text", command=open_events, bd=0)
