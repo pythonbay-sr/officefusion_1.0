@@ -6,4 +6,7 @@ Digital Assistant is a desktop GUI made for daily tasks like calendar, time, ope
 3. Opening Websites - For now 4 websites can be open. Those are : Google, Netflix, Spotify and Apple. In order for them to open you need to type their name with no caps (for example "google", "netflix", "spotify", "apple". Then click "Enter" (with a mouse).
 4. Alarm
 
+
+# Home Page : 
+
 ![alt text](https://github.com/nikolakosticc/officefusion_1.0/blob/main/images/home.png)
