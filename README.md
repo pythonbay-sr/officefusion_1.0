@@ -12,6 +12,6 @@ Digital Assistant is a desktop GUI made for daily tasks like calendar, time, ope
 ![alt text](https://github.com/nikolakosticc/officefusion_1.0/blob/main/images/home.png)
 
 
-#PDF Viewer
+# PDF Viewer
 
 ![alt text](https://github.com/nikolakosticc/officefusion_1.0/blob/main/images/pdf_viewer.png)
