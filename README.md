@@ -1,17 +1,23 @@
 # Office Fusion
 
-Digital Assistant is a desktop GUI made for daily tasks like calendar, time, opening up websites... That's all this version offers for now. Soon in new updates new features will come : weather and voice control. Here's how to use this app :
-1. Time
+Office Fusion is a desktop GUI made for project management and adding daily tasks. Here's what the app offeres : 
+
+1. Project Management
 2. Calendar
-3. Opening Websites - For now 4 websites can be open. Those are : Google, Netflix, Spotify and Apple. In order for them to open you need to type their name with no caps (for example "google", "netflix", "spotify", "apple". Then click "Enter" (with a mouse).
-4. Alarm
+3. Alarm & Clock
+4. Weather
 
 
-# Home Page : 
+# 1. Home Page : 
 
 ![alt text](https://github.com/nikolakosticc/officefusion_1.0/blob/main/images/home.png)
 
+# 1.1 How to add a project : 
 
-# PDF Viewer
+Fill in the title and/or description and people fields and hit "Add project" button.
+After that your project will be added to the path of this software in a .txt form.
+
+
+# 2. PDF Viewer : 
 
 ![alt text](https://github.com/nikolakosticc/officefusion_1.0/blob/main/images/pdf_viewer.png)
