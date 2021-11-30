@@ -3,6 +3,9 @@ import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
 import pyglet
+import os
+
+general_path = os.getcwd().replace("\\", r"\\")
 
 
 def weather_app():
@@ -17,14 +20,14 @@ def weather_app():
 
     #Template (background image)
 
-    img = ImageTk.PhotoImage(Image.open(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\templates\\weather_template.png"))
+    img = ImageTk.PhotoImage(Image.open(general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\templates\\weather_template.png"))
     panel = Label(root, image = img)
     panel.place(x=0, y=0)
 
 
     #Insert the font
 
-    pyglet.font.add_file(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\Poppins-Regular.ttf")
+    pyglet.font.add_file(general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\Poppins-Regular.ttf")
 
 
     #OpenWeather API

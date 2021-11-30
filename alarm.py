@@ -15,8 +15,9 @@ from weather import weather_app
 from tkinter import filedialog
 from tkPDFViewer import tkPDFViewer as pdf
 import threading
+import os
 
-
+general_path = os.getcwd().replace("\\", r"\\")
 
 def alarm_app():
     root = tkinter.Toplevel()
@@ -28,7 +29,7 @@ def alarm_app():
 
     #Template (background image)
 
-    img = ImageTk.PhotoImage(Image.open(r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\templates\\alarm_template.png"))
+    img = ImageTk.PhotoImage(Image.open(general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\templates\\alarm_template.png"))
     panel = Label(root, image = img)
     panel.place(x=0, y=0)
 
@@ -66,12 +67,12 @@ def alarm_app():
         Minutes_Info = int(Minutes.get())
         while True:
             if Hours_Info == datetime.datetime.now().hour and Minutes_Info == datetime.datetime.now().minute:
-                playsound("C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\alarm.mp3")
+                playsound(general_path + "\\Downloads\\digital_assistant_software_1.0-main\\alarm.mp3")
                 break
 
     #Add event
 
-    add_event_path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\buttons\\set_alarm.png"
+    add_event_path = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\buttons\\set_alarm.png"
 
     add_event_icon = ImageTk.PhotoImage(Image.open(add_event_path))
     add_event_button = tk.Button(root, image=add_event_icon, relief=FLAT, text="optional text", command=activate_alarm, bd=0)

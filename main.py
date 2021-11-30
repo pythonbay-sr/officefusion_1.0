@@ -60,20 +60,17 @@ def tasks_app():
 
 
     def add_task():
-        #path = r"C:\\Users\\Nikola Kostic\\Downloads\\digital_assistant_software_1.0-main\\file.txt"
-        path = filedialog.asksaveasfilename(filetypes = (("Text Files", "*.txt"), ("All Files", "*.*")))
         title = Title_Entry.get()
         text = Text_Entry.get()
         current_time = time.strftime('%H:%M:%S')
+
+        location = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\tasks\\"
+        path = (location + title + ".txt")
+
         with open(path, 'w') as f:
-            f.write("Title of the task : ")
-            f.write(title)
-            f.write("\n")
-            f.write("Description of the task : ")
-            f.write(text)
-            f.write("\n")
-            f.write("Task created on : ")
-            f.write(current_time)
+            f.write("Title : " + title + "\n")
+            f.write("Description : " + text)
+            f.write("Time : " + current_time + "\n")
 
     Add_Note_Button = Button(notes, text="Add a Task", font=("Century Gothic", 15),
                      fg="#fff", bg="#3841c7", width=10, command=add_task, relief=FLAT)
