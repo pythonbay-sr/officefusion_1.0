@@ -9,16 +9,17 @@ from tkinter import messagebox
 import datetime
 import time
 from playsound import playsound
-from weather import weather_app
 from tkinter import filedialog
 from tkPDFViewer import tkPDFViewer as pdf
 import threading
+import os
+from datetime import date
+from weather import weather_app
 from alarm import alarm_app
 from datepicker import calendar_app
-import os
+
 
 general_path = os.getcwd().replace("\\", r"\\")
-
 
 #Set up the Program
 
@@ -62,7 +63,6 @@ def tasks_app():
     def add_task():
         title = Title_Entry.get()
         text = Text_Entry.get()
-        current_time = time.strftime('%H:%M:%S')
 
         location = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\tasks\\"
         path = (location + title + ".txt")
@@ -70,7 +70,6 @@ def tasks_app():
         with open(path, 'w') as f:
             f.write("Title : " + title + "\n")
             f.write("Description : " + text)
-            f.write("Time : " + current_time + "\n")
 
     Add_Note_Button = Button(notes, text="Add a Task", font=("Century Gothic", 15),
                      fg="#fff", bg="#3841c7", width=10, command=add_task, relief=FLAT)
@@ -152,13 +151,20 @@ People_Entry.place(x=755, y=613)
 
 
 Calendar_Interface_Label = Calendar(root, font=("Century Gothic", 15), selectmode='day', locale='en_US',
-mindate=mindate, maxdate=maxdate, disabledforeground='red', cursor="hand1", year=2021, month=9, day=21, fg="ffffff")
+mindate=mindate, maxdate=maxdate, disabledforeground='red', cursor="hand1", year=2021, month=12, day=1, fg="ffffff")
 Calendar_Interface_Label.place(x=300, y=340)
 
 
 def add_event():
-    global date
-    date = Calendar_Interface_Label.get_date()
+    global datee
+    datee = Calendar_Interface_Label.get_date()
+
+    today = date.today()
+    current_time = time.strftime('%H:%M:%S')
+
+    date_of_adding = today.strftime("%m/%d/%Y")
+    time_and_date_of_adding = current_time + " " + date_of_adding
+    #print("Written on :", time_and_date_of_adding)
 
     title = Title_Entry.get()
     description = Description_Entry.get(1.0, END)
@@ -171,10 +177,12 @@ def add_event():
         f.write("Title : " + title + "\n")
         f.write("Description : " + description)
         f.write("People : " + people + "\n")
+        f.write("Time and date of adding : " + time_and_date_of_adding + "\n")
+        f.write("Finish by : " + datee + "\n")
 
 
 def open_events():
-    path = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\projects" + "\\events.txt"
+    path = general_path + r"\\Downloads\\digital_assistant_software_1.0-main\\projects"
     os.startfile(path)
 
 
